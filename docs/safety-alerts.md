@@ -36,6 +36,7 @@
 - `Assets/Scripts/Safety/SafetyStateController.cs`가 Idle→Caution→Danger→Override 상태 머신을 구현하며 속도(위치 서비스), 기기 기울기(자이로), 위험 구역 근접값(`SafetyZoneSensor`)을 평가합니다.
 - `SafetyStateUIBinder`를 같은 GameObject에 붙여 HUD/배너/커튼/잠금 UI 오브젝트를 상태에 맞춰 토글합니다.
 - 지도 팀은 `SafetyZoneSensor.UpdateProximity()`를 호출해 가장 가까운 위험 구역·세이프존 거리를 매 프레임 주입하면 됩니다.
+- `SafetyMapData` ScriptableObject와 `SafetyProximityUpdater`를 사용하면, 미리 정의한 POI(위험/세이프존) 리스트로부터 플레이어의 현재 GPS 좌표를 평가해 `SafetyZoneSensor`에 자동으로 거리를 전달할 수 있습니다.
 - 서버 연동을 위해 `SafetyStateController.onMetricsUpdated` 이벤트 훅을 이용, 현재 상태와 측정값을 텔레메트리 모듈에서 수집하도록 합니다.
 - `SafetyTelemetryReporter` + `SafetyTelemetrySink` 조합으로 상태 전환/메트릭을 30초 윈도 단위로 집계해 서버 전송할 수 있습니다. 기본 제공 싱크:
   - `ConsoleSafetyTelemetrySink`: 개발 중 콘솔 출력용.

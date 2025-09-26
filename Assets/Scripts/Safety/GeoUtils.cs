@@ -7,12 +7,15 @@ namespace GreatestOfTheTrader.Safety
     {
         const double EarthRadiusMeters = 6371000; // average earth radius
 
-        public static float HaversineDistance(LocationInfo a, LocationInfo b)
+        public static float HaversineDistance(LocationInfo a, LocationInfo b) =>
+            HaversineDistance(a.latitude, a.longitude, b.latitude, b.longitude);
+
+        public static float HaversineDistance(double lat1Deg, double lon1Deg, double lat2Deg, double lon2Deg)
         {
-            var lat1 = DegreesToRadians(a.latitude);
-            var lat2 = DegreesToRadians(b.latitude);
-            var deltaLat = DegreesToRadians(b.latitude - a.latitude);
-            var deltaLon = DegreesToRadians(b.longitude - a.longitude);
+            var lat1 = DegreesToRadians(lat1Deg);
+            var lat2 = DegreesToRadians(lat2Deg);
+            var deltaLat = DegreesToRadians(lat2Deg - lat1Deg);
+            var deltaLon = DegreesToRadians(lon2Deg - lon1Deg);
 
             var sinLat = Math.Sin(deltaLat / 2);
             var sinLon = Math.Sin(deltaLon / 2);
