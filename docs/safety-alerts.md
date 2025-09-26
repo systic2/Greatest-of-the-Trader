@@ -37,6 +37,7 @@
 - `SafetyStateUIBinder`를 같은 GameObject에 붙여 HUD/배너/커튼/잠금 UI 오브젝트를 상태에 맞춰 토글합니다.
 - 지도 팀은 `SafetyZoneSensor.UpdateProximity()`를 호출해 가장 가까운 위험 구역·세이프존 거리를 매 프레임 주입하면 됩니다.
 - 서버 연동을 위해 `SafetyStateController.onMetricsUpdated` 이벤트 훅을 이용, 현재 상태와 측정값을 텔레메트리 모듈에서 수집하도록 합니다.
+- `SafetyTelemetryReporter` + `SafetyTelemetrySink` 조합으로 상태 전환/메트릭을 30초 윈도 단위로 집계해 서버 전송(미구현 시 콘솔 로그)할 수 있습니다.
 
 ## 텔레메트리 & 서버 연계
 - 이벤트 스키마: `{playerId, stateFrom, stateTo, speedAvg, tiltAvg, gps, timestamp, poiId(optional)}`.
