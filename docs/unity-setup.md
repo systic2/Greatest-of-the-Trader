@@ -48,4 +48,4 @@
 - `ProjectSettings/`, `Packages/` 폴더가 버전 관리에 포함됐는지 확인
 - 간단히 `Build Settings`에서 Android/iOS 각각에서 `Add Open Scenes`된 상태 저장
 
-> 현재 CLI 환경에서는 Unity 에디터 실행이 불가하므로, 위 절차를 개발 머신에서 진행한 뒤 생성된 `GoesangAR` 프로젝트 폴더를 리포지토리에 추가하면 됩니다.
+> 현재 CLI 환경에서는 Unity 에디터 실행이 불가하므로, 위 절차를 개발 머신에서 진행한 뒤 생성된 `GreatestOfTheTrader` 프로젝트 폴더를 리포지토리에 추가하면 됩니다.
