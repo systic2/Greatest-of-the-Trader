@@ -11,7 +11,7 @@
 1. Unity Hub의 **Projects** 탭에서 **New project**를 선택합니다.
 2. 템플릿으로 **3D (URP 없이)** 또는 **Blank 3D**를 선택합니다. AR Foundation 기본 샘플은 3D 기반이 가장 호환성이 좋습니다.
 3. 프로젝트 이름: `GreatestOfTheTrader`
-4. 위치: 리포지토리 루트(`/Users/systic/Desktop/Greatest-of-the-Trader/GreatestOfTheTrader` 등)
+4. 위치: 리포지토리 루트(`/Users/systic/Desktop/GreatestOfTheTrader/GreatestOfTheTrader` 등)
 5. **Create project**를 눌러 프로젝트를 생성합니다.
 
 ## 3. 패키지 관리자 구성
