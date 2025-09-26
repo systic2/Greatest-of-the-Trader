@@ -32,6 +32,12 @@
 - **청각**: TTS 음성 한국어/영어 지원. Caution는 1회, Danger는 5초 간격 반복. 사용자 설정에서 음성/햅틱 on/off 개별 제어.
 - **햅틱**: iOS/Android 기본 강도 사용. 장시간 연속 진동 방지를 위해 60초 Danger 유지 시 자동 강도 감소.
 
+### 구현 메모
+- `Assets/Scripts/Safety/SafetyStateController.cs`가 Idle→Caution→Danger→Override 상태 머신을 구현하며 속도(위치 서비스), 기기 기울기(자이로), 위험 구역 근접값(`SafetyZoneSensor`)을 평가합니다.
+- `SafetyStateUIBinder`를 같은 GameObject에 붙여 HUD/배너/커튼/잠금 UI 오브젝트를 상태에 맞춰 토글합니다.
+- 지도 팀은 `SafetyZoneSensor.UpdateProximity()`를 호출해 가장 가까운 위험 구역·세이프존 거리를 매 프레임 주입하면 됩니다.
+- 서버 연동을 위해 `SafetyStateController.onMetricsUpdated` 이벤트 훅을 이용, 현재 상태와 측정값을 텔레메트리 모듈에서 수집하도록 합니다.
+
 ## 텔레메트리 & 서버 연계
 - 이벤트 스키마: `{playerId, stateFrom, stateTo, speedAvg, tiltAvg, gps, timestamp, poiId(optional)}`.
 - Danger/Override 발생 시 즉시 전송, Idle↔Caution 전환은 배치 업로드(30초 간격)로 배터리 절약.
